@@ -28,4 +28,4 @@ def score_inputs():
 
 
 if __name__ == "__main__":
-    app.run(port=PORT)
+    app.run(threaded=True, port=PORT)
