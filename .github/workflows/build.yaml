@@ -8,7 +8,8 @@ jobs:
   build-api:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Testing"
+      - uses: actions/checkout@v2
+      - uses: psf/black@stable
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
@@ -18,7 +19,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: pnvballaran/flask-sklearn-example:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-sklearn-example:latest
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
