@@ -18,7 +18,7 @@ PORT = 4100
 
 @app.route("/")
 def hello():
-    return "It's working! Yayyyyy 🤖"
+    return "It's working! Yayyyyyy 🤖"
 
 
 @app.route("/score", methods=["POST"])
