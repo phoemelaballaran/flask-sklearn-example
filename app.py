@@ -9,11 +9,9 @@ app = Flask(__name__)
 
 PORT = 4100
 
-
 @app.route("/")
 def hello():
-    return "baby you don't have to be a picture in a magazine"
-
+    return "It's working! 🤖"
 
 @app.route("/score", methods=["POST"])
 def score_inputs():
@@ -25,7 +23,6 @@ def score_inputs():
     iris_name_result = IRIS_CLASS_NAMES[result[0]]
 
     return {"result": iris_name_result}
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", threaded=True,port=PORT)
