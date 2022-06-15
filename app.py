@@ -1,17 +1,25 @@
 from flask import Flask, request
+
+
 from joblib import load
+
 
 decision_tree = load("iris_classifier.joblib")
 
+
 IRIS_CLASS_NAMES = {0: "Iris-Setosa", 1: "Iris-Versicolour", 2: "Iris-Virginica"}
+
 
 app = Flask(__name__)
 
+
 PORT = 4100
+
 
 @app.route("/")
 def hello():
     return "It's working! 🤖"
+
 
 @app.route("/score", methods=["POST"])
 def score_inputs():
@@ -23,6 +31,7 @@ def score_inputs():
     iris_name_result = IRIS_CLASS_NAMES[result[0]]
 
     return {"result": iris_name_result}
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", threaded=True,port=PORT)
